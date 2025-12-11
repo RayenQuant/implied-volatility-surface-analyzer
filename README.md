@@ -38,5 +38,6 @@ Interactive web application for visualizing and analyzing implied volatility smi
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/<your-username>/implied-volatility-surface-analyzer.git
+git clone https://github.com/RayenQuant/implied-volatility-surface-analyzer.git
 cd implied-volatility-surface-analyzer
+
