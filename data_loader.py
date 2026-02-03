@@ -5,11 +5,11 @@ import pandas as pd
 import yfinance as yf
 
 # --- Smile filtering thresholds ---
-SMILE_MIN_MID = 0.20           # ignore very cheap options (< 20 cents)
+SMILE_MIN_MID = 0.10           # ignore very cheap options (< 10 cents)
 SMILE_MONEYNESS_MIN = 0.7      # central region only
 SMILE_MONEYNESS_MAX = 1.3
-SMILE_IV_FACTOR_LOW = 0.5      # keep iv in [0.5 * median, 1.5 * median]
-SMILE_IV_FACTOR_HIGH = 1.5
+SMILE_IV_FACTOR_LOW = 0.4      # keep iv in [0.4 * median, 1.6 * median]
+SMILE_IV_FACTOR_HIGH = 1.6
 
 def get_underlying_price(ticker: str) -> float:
     y_ticker = yf.Ticker(ticker)
@@ -116,10 +116,10 @@ from iv_engine import implied_vol_newton
 from iv_engine import implied_vol_with_status
 
 # Global quality thresholds (tweak if needed)
-MIN_MID = 0.10       # ignore options priced below 10 cents
-MIN_OI = 1           # require at least 1 open interest
-IV_MIN = 0.02        # min allowed IV  = 2%
-IV_MAX = 2.0         # max allowed IV  = 200%
+MIN_MID = 0.05       # ignore options priced below 5 cents
+MIN_OI = 0           # no open interest requirement (many valid options have OI=0)
+IV_MIN = 0.01        # min allowed IV  = 1%
+IV_MAX = 3.0         # max allowed IV  = 300%
 
 
 
