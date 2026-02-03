@@ -30,7 +30,7 @@ if ticker:
         st.subheader(f"Volatility Smile – {ticker}")
         
         # Expiry selector inside this tab
-        selected_expiry = st.selectbox("Select expiration", expiries, key="smile_expiry")
+        selected_expiry = st.selectbox("Select expiration", expiries, index=min(2, len(expiries)-1), key="smile_expiry")
 
         calls_iv, puts_iv, S, r = get_iv_chain(ticker, selected_expiry)
         df_expiry = pd.concat([calls_iv, puts_iv], ignore_index=True)
@@ -127,7 +127,7 @@ if ticker:
         st.subheader("Options Chain with Implied Volatility")
         
         # Expiry selector inside this tab
-        raw_data_expiry = st.selectbox("Select expiration", expiries, key="raw_data_expiry")
+        raw_data_expiry = st.selectbox("Select expiration", expiries, index=min(2, len(expiries)-1), key="raw_data_expiry")
         
         # Fetch data for selected expiry
         calls_iv_raw, puts_iv_raw, S_raw, r_raw = get_iv_chain(ticker, raw_data_expiry)
@@ -173,7 +173,7 @@ if ticker:
                 index=0,
             )
         with col2:
-            smooth_level = st.slider("Surface smoothing", 0.0, 3.0, 1.0, 0.5,
+            smooth_level = st.slider("Surface smoothing", 0.0, 3.0, 2.0, 0.5,
                                      help="Higher values = smoother surface (reduces spikes)")
 
         metric_map = {
@@ -245,3 +245,4 @@ if ticker:
                         )
             else:
                 st.info("Not enough SVI fits available to run a calendar arbitrage check.")        
+
