@@ -2,7 +2,7 @@
 
 Interactive web application for visualizing and analyzing implied volatility smiles and surfaces for US equities and indices.
 
-**Live demo:** https://implied-volatility-surface-analyzer-htzsn5p8iz5rbkybjy6dcw.streamlit.app/
+**Live demo:** [https://huggingface.co/spaces/rayenquant/implied-volatility-surface-analyzer]
 
 ---
 
